@@ -1,0 +1,75 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: Europe/Oslo
+  customize: !include customize.yaml
+
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor:
+  platform: yr
+
+# Text to speech
+tts:
+  platform: google
+
+device_tracker:
+  - platform: tplink
+    host: 192.168.0.1
+    username: !secret tplink_username
+    password: !secret tplink_password
+    track_new_devices: no
+  - platform: owntracks
+
+
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_api
+    default_channel: !secret slack_channel
+
+mqtt:
+  broker: !secret mqtt_broker_server
+  port: !secret mqtt_broker_port
+  username: !secret mqtt_broker_username
+  password: !secret mqtt_broker_password
+
+automation:
+  alias: Notify when Anders arrives home
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: template
+    value_template: "{% if is_state('device_tracker.anders_iphone', 'home') %}true{% endif %}"
+  action:
+    - service: notify.slack
+      data:
+        message: Anders arriving home

@@ -1,0 +1,27 @@
+#devices
+  - entity_id: device_tracker.karoline_iphone
+    friendly_name: Karoline
+
+  - entity_id: device_tracker.80d21d03dbbb
+    hidden: true
+
+  - entity_id: device_tracker.3451c9d2f60e
+    hidden: true
+  
+  - entity_id: device_tracker.c4b301bc3fd1
+    hidden: true
+
+  - entity_id: device_tracker.c4b301bc3fd1
+    hidden: true
+
+  - entity_id: device_tracker.b853ac01ff16
+    hidden: true
+
+  - entity_id: device_tracker.d8cf9c509216
+    hidden: true
+
+  - entity_id: device_tracker.3451c9d2f60e
+    hidden: true
+
+  - entity_id: device_tracker.80d21d03dbbb
+    hidden: true
