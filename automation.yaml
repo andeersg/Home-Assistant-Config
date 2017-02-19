@@ -4,10 +4,7 @@
     platform: zone
     event: leave
     zone: zone.home
-    entity_id: device_tracker.rdckpwyv_anders_iphone
-  condition:
-    condition: time
-    after: '16:00'
+    entity_id: device_tracker.anders_anders
   action:
     service: notify.slack
     data:

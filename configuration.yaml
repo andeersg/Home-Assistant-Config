@@ -14,7 +14,7 @@ zone:
   radius: 100
 
 zone 2:
-  name: Work (Anders)
+  name: Work
   latitude: !secret bouvet_latitude
   longitude: !secret bouvet_longitude
   radius: 100
@@ -47,8 +47,8 @@ logbook:
 sun:
 
 # Weather Prediction
-sensor:
-  platform: yr
+# sensor:
+# platform: yr
 
 # Text to speech
 tts:
@@ -77,3 +77,7 @@ mqtt:
 
 automation: !include automation.yaml
 
+logger:
+  default: critical
+  logs:
+    homeassistant.components.zone: debug
