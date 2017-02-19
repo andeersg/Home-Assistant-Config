@@ -7,6 +7,12 @@ homeassistant:
   time_zone: Europe/Oslo
   customize: !include customize.yaml
 
+zone:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 100
+
 zone 2:
   name: Work (Anders)
   latitude: !secret bouvet_latitude
@@ -69,14 +75,5 @@ mqtt:
   username: !secret mqtt_broker_username
   password: !secret mqtt_broker_password
 
-automation:
-  alias: Notify when Anders arrives home
-  initial_state: True
-  hide_entity: False
-  trigger:
-    platform: template
-    value_template: "{% if is_state('device_tracker.anders_iphone', 'home') %}true{% endif %}"
-  action:
-    - service: notify.slack
-      data:
-        message: Anders arriving home
+automation: !include automation.yaml
+

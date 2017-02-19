@@ -1,0 +1,14 @@
+
+- alias: 'Leave Home notification'
+  trigger:
+    platform: zone
+    event: leave
+    zone: zone.home
+    entity_id: device_tracker.rdckpwyv_anders_iphone
+  condition:
+    condition: time
+    after: '16:00'
+  action:
+    service: notify.slack
+    data:
+      message: 'Anders left the house'
