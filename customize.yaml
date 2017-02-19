@@ -1,3 +1,5 @@
 #devices
   - entity_id: device_tracker.karoline_iphone
     friendly_name: Karoline
+  - entity_id: media_player.samsung_led46_ue46f6400
+    friendly_name: TV

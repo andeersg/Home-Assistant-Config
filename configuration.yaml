@@ -20,6 +20,12 @@ zone 2:
   radius: 100
   icon: mdi:code-tags
 
+group:
+  living_room:
+    name: Living Room
+    entities:
+      - media_player.samsung_led46_ue46f6400
+
 frontend:
 
 http:
