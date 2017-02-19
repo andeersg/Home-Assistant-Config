@@ -7,6 +7,13 @@ homeassistant:
   time_zone: Europe/Oslo
   customize: !include customize.yaml
 
+zone 2:
+  name: Work (Anders)
+  latitude: !secret bouvet_latitude
+  longitude: !secret bouvet_longitude
+  radius: 100
+  icon: mdi:code-tags
+
 frontend:
 
 http:
